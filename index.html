@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pocket Sunshine 🌸</title>
+    <style>
+        :root {
+            --bg: #FFF0F5;
+            --card: #FFE4E1;
+            --accent: #D1527A;
+            --btn: #FFB6C1;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            transition: 0.3s;
+        }
+
+        .card {
+            background: var(--card);
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 0;
+        }
+
+        .icon {
+            font-size: 50px;
+            margin: 15px 0;
+        }
+
+        p {
+            color: #4A4A4A;
+            min-height: 48px;
+        }
+
+        button {
+            background: var(--btn);
+            color: white;
+            border: none;
+            padding: 11px 22px;
+            font-size: 1rem;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h2>✨ Daily Sunshine Jar ✨</h2>
+        <div class="icon" id="icon">🌸</div>
+        <p id="msg">Tap below to reveal a sweet little reminder! (｡♥‿♥｡)</p>
+        <button onclick="drawNote()">Open Note 💖</button>
+    </div>
+    <script>
+        const notes = [
+            { text: "Take a deep breath, you are doing amazing! 🌸", icon: "💖" },
+            { text: "Late-night coding magic is real, but remember to hydrate! 💧", icon: "✨" },
+            { text: "Time for a cozy break and a warm cup of coffee ☕", icon: "🫧" },
+            { text: "Small steady progress beats perfection every time 🌷", icon: "🍀" },
+            { text: "Sending you warm hugs and 100% sparkling vibes! 🎀", icon: "🥰" }
+        ];
+        const themes = [
+            { bg: "#FFF0F5", card: "#FFE4E1", accent: "#D1527A", btn: "#FFB6C1" },
+            { bg: "#F4F0FF", card: "#EAE4F8", accent: "#8A64D0", btn: "#C7B2E8" },
+            { bg: "#F0FFF0", card: "#E2F6E2", accent: "#438A5E", btn: "#A3E4B8" },
+            { bg: "#FFF9E6", card: "#FFF0C2", accent: "#C98A2C", btn: "#FFE28A" }
+        ];
+        function drawNote() {
+            const n = notes[Math.floor(Math.random() * notes.length)];
+            const t = themes[Math.floor(Math.random() * themes.length)];
+            document.documentElement.style.setProperty('--bg', t.bg);
+            document.documentElement.style.setProperty('--card', t.card);
+            document.documentElement.style.setProperty('--accent', t.accent);
+            document.documentElement.style.setProperty('--btn', t.btn);
+            document.getElementById('icon').innerText = n.icon;
+            document.getElementById('msg').innerText = n.text;
+        }
+    </script>
+</body>
+
+</html>
